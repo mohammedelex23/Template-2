@@ -310,7 +310,7 @@ i {
     width: 400px;
   }
 }
-@media (min-width: 650px) {
+@media (min-width: 680px) {
   .header .col:first-child {
     flex-flow: row;
   }
