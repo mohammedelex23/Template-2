@@ -310,7 +310,8 @@ i {
     width: 400px;
   }
 }
-@media (min-width: 680px) {
+
+@media (min-width: 845px) {
   .header .col:first-child {
     flex-flow: row;
   }
@@ -321,7 +322,7 @@ i {
     display: block;
     position: absolute;
     width: 60px;
-    margin-left: 20px;
+    margin-left: 28px;
     height: 3px;
     background-color: var(--main-color);
     bottom: 0;
