@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Template 2</title>
+  </head>
+  <body>
+    <!-- nav-links for small screens -->
+    <div id="nav-container" class="special-nav-links">
+      <ul>
+        <i id="close-icon" class="fa-solid fa-xmark"></i>
+        <li><a href="">collections</a></li>
+        <li><a href="">man</a></li>
+        <li><a href="">women</a></li>
+        <li><a href="">about</a></li>
+        <li><a href="">contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Start Header -->
+    <header class="header">
+      <div class="container">
+        <!-- col 1 -->
+        <div class="col">
+          <!-- website name -->
+          <h2 class="company-name">sneakers</h2>
+          <!-- nav links -->
+          <nav class="nav-links">
+            <!-- burgur icon -->
+            <i id="bar-icon" class="fa-solid fa-bars"></i>
+            <!-- links -->
+            <ul>
+              <li id="collections">collections</li>
+              <li id="man">man</li>
+              <li id="women">women</li>
+              <li id="about">about</li>
+              <li id="contact">contact</li>
+            </ul>
+            <!-- indicator -->
+            <div id="indicator" class="indicator"></div>
+          </nav>
+        </div>
+        <!-- col 2 -->
+        <div class="col">
+          <!-- cart -->
+          <i id="cart-icon" class="fa-solid fa-cart-shopping">
+            <span id="cart-counter">3</span>
+          </i>
+          <!-- user avatar -->
+          <img id="avatar" src="images/image-avatar.png" alt="user image" />
+        </div>
+
+        <!-- floating items -->
+        <!-- shopping cart -->
+        <div id="cart" class="cart">
+          <h3>Cart</h3>
+          <hr />
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Start Main -->
+    <main class="main">
+      <div class="container">
+        <!-- Start Image Slides -->
+        <div id="slides-wrapper" class="slides-wrapper">
+          <div class="slides-container">
+            <!-- prev icon -->
+            <i id="prev-icon" class="fa-solid fa-angle-left"></i>
+            <!-- next icon -->
+            <i id="next-icon" class="fa-solid fa-angle-right"></i>
+            <!-- slides -->
+            <div class="slides">
+              <img
+                id="first-slide"
+                src="images/image-product-1.jpg"
+                alt="product"
+                style="margin: 0px"
+              />
+              <img src="images/image-product-2.jpg" alt="product" />
+              <img src="images/image-product-3.jpg" alt="product" />
+              <img src="images/image-product-4.jpg" alt="product" />
+            </div>
+          </div>
+          <div class="images">
+            <img src="images/image-product-1-thumbnail.jpg" alt="" />
+            <img src="images/image-product-2-thumbnail.jpg" alt="" />
+            <img src="images/image-product-3-thumbnail.jpg" alt="" />
+            <img src="images/image-product-4-thumbnail.jpg" alt="" />
+            <div id="img-overlay" class="img-overlay"></div>
+          </div>
+        </div>
+        <!-- End Image Slides -->
+
+        <!-- product images -->
+        <div class="product-images">
+          <img src="images/image-product-1.jpg" alt="" />
+          <div class="images">
+            <img
+              class="first-img"
+              src="images/image-product-1-thumbnail.jpg"
+              alt=""
+            />
+            <img
+              onclick="openImageSlider()"
+              src="images/image-product-2-thumbnail.jpg"
+              alt=""
+            />
+            <img
+              onclick="openImageSlider()"
+              src="images/image-product-3-thumbnail.jpg"
+              alt=""
+            />
+            <img
+              onclick="openImageSlider()"
+              src="images/image-product-4-thumbnail.jpg"
+              alt=""
+            />
+            <div onclick="openImageSlider()" class="img-overlay"></div>
+          </div>
+        </div>
+
+        <!-- Start Product Details -->
+        <div class="product-details">
+          <!-- product name -->
+          <div class="product-name">
+            <h4>SNEAKERS COMPANY</h4>
+            <h1>Fall Limited Edition Sneakers</h1>
+          </div>
+          <!-- product desc -->
+          <p class="product-desc">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore
+            dolorem sequi adipisci molestias? Illum dolorem pariatur, veritatis
+            ex iure ad sapiente molestiae ullam aut ipsa omnis dolores fuga
+            exercitationem. Blanditiis.
+          </p>
+          <!-- product price -->
+          <div class="product-price">
+            <div>
+              <span id="main-price" class="main-price">$125.00</span>
+              <span id="price-discount" class="price-discount">50%</span>
+            </div>
+            <span class="old-price">$250.00</span>
+          </div>
+          <!-- product buttons -->
+          <div class="product-buttons">
+            <!-- plus minus -->
+            <div>
+              <i id="minus-btn" class="fa-solid fa-minus"></i>
+              <span id="product-count">0</span>
+              <i id="plus-btn" class="fa-solid fa-plus"></i>
+            </div>
+            <!-- add button -->
+            <button>
+              <!-- icon -->
+              <i id="cart-icon" class="fa-solid fa-cart-shopping"></i>
+
+              <span>Add to cart</span>
+            </button>
+          </div>
+        </div>
+        <!-- End Product Details -->
+      </div>
+    </main>
+    <!-- End Main -->
+
+    <!-- script -->
+    <script>
+      /* Start nav-links */
+      const barIcon = document.getElementById("bar-icon");
+      const navContainer = document.getElementById("nav-container");
+      const closeIcon = document.getElementById("close-icon");
+      const cartIcon = document.getElementById("cart-icon");
+      const avatar = document.getElementById("avatar");
+      const cart = document.getElementById("cart");
+
+      barIcon.addEventListener("click", function () {
+        navContainer.style.width = "100%";
+      });
+
+      navContainer.addEventListener("click", function (e) {
+        if (e.target === navContainer) {
+          navContainer.style.width = "0px";
+        }
+      });
+      closeIcon.addEventListener("click", function (e) {
+        navContainer.style.width = "0px";
+      });
+      cartIcon.addEventListener("click", function (e) {
+        cart.style.display === "block"
+          ? (cart.style.display = "none")
+          : (cart.style.display = "block");
+      });
+      avatar.addEventListener("click", function (e) {
+        cart.style.display === "block"
+          ? (cart.style.display = "none")
+          : (cart.style.display = "block");
+      });
+      window.addEventListener("click", function (e) {
+        if (e.target !== cart && e.target !== cartIcon && e.target !== avatar) {
+          cart.style.display = "none";
+        }
+      });
+
+      let collections = document.getElementById("collections");
+      let man = document.getElementById("man");
+      let women = document.getElementById("women");
+      let about = document.getElementById("about");
+      let contact = document.getElementById("contact");
+
+      let indicator = document.getElementById("indicator");
+
+      collections.addEventListener("click", function (e) {
+        indicator.style.marginLeft = "20px";
+      });
+
+      man.addEventListener("click", function (e) {
+        indicator.style.marginLeft = "100px";
+      });
+      women.addEventListener("click", function (e) {
+        indicator.style.marginLeft = "167px";
+      });
+      about.addEventListener("click", function (e) {
+        indicator.style.marginLeft = "238px";
+      });
+      contact.addEventListener("click", function (e) {
+        indicator.style.marginLeft = "310px";
+      });
+
+      /* End nav-links */
+
+      /* Start Slides */
+
+      const firstSlide = document.getElementById("first-slide");
+      const nextIcon = document.getElementById("next-icon");
+      const prevIcon = document.getElementById("prev-icon");
+      const imgOverlay = document.getElementById("img-overlay");
+
+      nextIcon.addEventListener("click", function (e) {
+        let margin = firstSlide.style.marginLeft;
+        margin = parseInt(margin);
+
+        let left = imgOverlay.style.left;
+
+        left = parseInt(left || 0);
+
+        if (margin <= 0 && margin > -300) {
+          margin -= 100;
+          firstSlide.style.marginLeft = `${margin}%`;
+          left += 80;
+          imgOverlay.style.left = `${left}px`;
+        } else {
+          firstSlide.style.marginLeft = "0px";
+          imgOverlay.style.left = "0px";
+        }
+      });
+      prevIcon.addEventListener("click", function (e) {
+        let margin = firstSlide.style.marginLeft;
+        margin = parseInt(margin);
+
+        let left = imgOverlay.style.left;
+        left = parseInt(left || 0);
+
+        if (margin >= -300 && margin < 0) {
+          margin += 100;
+          firstSlide.style.marginLeft = `${margin}%`;
+          left -= 80;
+          imgOverlay.style.left = `${left}px`;
+        } else {
+          firstSlide.style.marginLeft = "-300%";
+          imgOverlay.style.left = "240px";
+        }
+      });
+
+      /* open image slider */
+      const slidesWrapper = document.getElementById("slides-wrapper");
+      function openImageSlider() {
+        slidesWrapper.style.display = "flex";
+      }
+
+      slidesWrapper.addEventListener("click", function (e) {
+        if (e.target === slidesWrapper) {
+          slidesWrapper.style.display = "none";
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        // if (window.innerWidth < 845) {
+        slidesWrapper.style.display = "";
+        // }
+      });
+
+      /* Start Product */
+      const plusBtn = document.getElementById("plus-btn");
+      const minusBtn = document.getElementById("minus-btn");
+      const productCount = document.getElementById("product-count");
+
+      let value = parseInt(productCount.innerText || 0);
+
+      plusBtn.addEventListener("click", function (e) {
+        productCount.innerText = ++value;
+      });
+      minusBtn.addEventListener("click", function (e) {
+        if (value > 0) {
+          productCount.innerText = --value;
+        }
+      });
+
+      /* End Product */
+
+      // setInterval(() => {
+      //   let margin = firstSlide.style.marginLeft;
+      //   margin = parseInt(margin);
+      //   if (margin <= 0 && margin > -300) {
+      //     margin -= 100;
+
+      //     firstSlide.style.marginLeft = `${margin}%`;
+      //   } else {
+      //     firstSlide.style.marginLeft = "0px";
+      //   }
+      // }, 5000);
+      /* End Slides */
+    </script>
+  </body>
+</html>
