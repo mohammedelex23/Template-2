@@ -69,6 +69,60 @@ i {
   padding: 10px 15px;
   font-weight: bolder;
 }
+.header .container .cart .cart-contents button {
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 7px;
+  background-color: var(--main-color);
+  color: #fcfcfc;
+  cursor: pointer;
+}
+.header .container .cart .cart-contents {
+  padding: 20px;
+}
+header .container .cart .cart-container .image-text {
+  display: flex;
+}
+header .container .cart .cart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .cart .cart-container i:hover {
+  color: rgb(241, 104, 104);
+}
+header .cart .cart-container i {
+  color: #99a0ad;
+  cursor: pointer;
+  font-size: 24px;
+}
+header .cart .cart-container span {
+  font-size: 14px;
+}
+header .cart .cart-container .image-text {
+  display: flex;
+  color: gray;
+}
+#cart-total {
+  color: var(--second-color);
+  font-weight: bold;
+  margin-left: 5px;
+}
+header .cart .cart-container .image-text div {
+  display: flex;
+  flex-direction: column;
+}
+header .cart .cart-container .prices {
+  margin-top: 10px;
+}
+header .cart .cart-container img {
+  width: 45px;
+  border-radius: 7px;
+  margin-right: 15px;
+}
 .header .container .cart p {
   min-height: 150px;
   padding: 10px 15px;
@@ -259,6 +313,9 @@ i {
   background-color: transparent;
   cursor: pointer;
 }
+#remove-from-cart {
+  background-color: rgb(224, 33, 33);
+}
 .product-details .product-buttons button {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -272,6 +329,7 @@ i {
   font-weight: bold;
   border-radius: 7px;
   cursor: pointer;
+  text-transform: capitalize;
 }
 .product-details .product-buttons button:hover {
   background-color: #fe7d21ab;

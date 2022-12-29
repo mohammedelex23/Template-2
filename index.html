@@ -58,7 +58,7 @@
         <div class="col">
           <!-- cart -->
           <i id="cart-icon" class="fa-solid fa-cart-shopping">
-            <span id="cart-counter">3</span>
+            <span style="display: none" id="cart-counter">1</span>
           </i>
           <!-- user avatar -->
           <img id="avatar" src="images/image-avatar.png" alt="user image" />
@@ -69,7 +69,30 @@
         <div id="cart" class="cart">
           <h3>Cart</h3>
           <hr />
-          <p>Your cart is empty</p>
+          <p id="cart-empty">Your cart is empty</p>
+          <div id="cart-contents" style="display: none" class="cart-contents">
+            <!-- product item -->
+            <div class="cart-container">
+              <!-- image and details -->
+              <!-- <div class="cart-details"> -->
+              <div class="image-text">
+                <img src="images/image-product-1-thumbnail.jpg" alt="product" />
+                <div>
+                  <span>Fall Limited Edition Sneakers</span>
+                  <span class="prices">
+                    <span>$125.00</span>
+                    <span id="cart-item-counts">x1</span>
+                    <span id="cart-total">$125.00</span>
+                  </span>
+                </div>
+              </div>
+              <!-- delete icon -->
+              <i class="fa-solid fa-trash"></i>
+              <!-- </div> -->
+            </div>
+            <!-- button -->
+            <button>Checkout</button>
+          </div>
         </div>
       </div>
     </header>
@@ -163,15 +186,19 @@
             <!-- plus minus -->
             <div>
               <i id="minus-btn" class="fa-solid fa-minus"></i>
-              <span id="product-count">0</span>
+              <span id="product-count">1</span>
               <i id="plus-btn" class="fa-solid fa-plus"></i>
             </div>
             <!-- add button -->
-            <button>
+            <button id="add-to-cart">
               <!-- icon -->
               <i id="cart-icon" class="fa-solid fa-cart-shopping"></i>
 
               <span>Add to cart</span>
+            </button>
+            <!-- remove button -->
+            <button style="display: none" id="remove-from-cart">
+              <span>remove</span>
             </button>
           </div>
         </div>
@@ -211,11 +238,6 @@
         cart.style.display === "block"
           ? (cart.style.display = "none")
           : (cart.style.display = "block");
-      });
-      window.addEventListener("click", function (e) {
-        if (e.target !== cart && e.target !== cartIcon && e.target !== avatar) {
-          cart.style.display = "none";
-        }
       });
 
       let collections = document.getElementById("collections");
@@ -305,20 +327,61 @@
         slidesWrapper.style.display = "";
         // }
       });
-
+      /* 
+<span id="cart-item-counts"></span>
+                    <span id="cart-total"></span>
+ */
       /* Start Product */
       const plusBtn = document.getElementById("plus-btn");
       const minusBtn = document.getElementById("minus-btn");
       const productCount = document.getElementById("product-count");
-
       let value = parseInt(productCount.innerText || 0);
+      const cartItemCounts = document.getElementById("cart-item-counts");
+      const cartTotal = document.getElementById("cart-total");
+      const addToCart = document.getElementById("add-to-cart");
+      const removeFromCart = document.getElementById("remove-from-cart");
+      const cartContents = document.getElementById("cart-contents");
+      const cartCounter = document.getElementById("cart-counter");
+      const cartEmpty = document.getElementById("cart-empty");
+      let totalCost = 0;
+      addToCart.addEventListener("click", function () {
+        cartContents.style.display = "block";
+        cartCounter.style.display = "block";
+        cartEmpty.style.display = "none";
+        this.style.display = "none";
+        removeFromCart.style.display = "block";
+      });
+      removeFromCart.addEventListener("click", function () {
+        cartContents.style.display = "none";
+        cartCounter.style.display = "none";
+        cartEmpty.style.display = "flex";
+        this.style.display = "none";
+        addToCart.style.display = "block";
+        value = 1;
+        productCount.innerText = 1;
+        totalCost = 0;
+        cartTotal.innerText = "$125.00";
+        cartItemCounts.innerText = "x1";
+      });
 
       plusBtn.addEventListener("click", function (e) {
         productCount.innerText = ++value;
+        if (value > 0) {
+          cartItemCounts.innerText = `x${value}`;
+        }
+        totalCost = 125 * value;
+        if (totalCost > 0) {
+          cartTotal.innerText = `$${totalCost}.00`;
+        }
       });
       minusBtn.addEventListener("click", function (e) {
-        if (value > 0) {
+        if (value > 1) {
           productCount.innerText = --value;
+          if (value > 0) {
+            cartItemCounts.innerText = `x${value}`;
+          }
+          totalCost = 125 * value;
+          cartTotal.innerText = `$${totalCost}.00`;
         }
       });
 
